@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulk Legacy — A Quiet Kind of Grand</title>
+<meta name="description" content="Mulk Legacy — a G+6 exclusive residential building in Bashundhara J Block. Six floors of considered living, wrapped in terracotta, concrete and green.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 1. LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <span class="loader-brand">MULK</span>
+    <div id="loader-bar"><div id="loader-bar-fill"></div></div>
+    <span id="loader-percent">0%</span>
+  </div>
+</div>
+
+<!-- 2. FIXED HEADER -->
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="#" class="nav-logo">MULK</a>
+    <ul class="nav-links">
+      <li><a href="#intro" class="nav-link">Project</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#location" class="nav-link">Location</a></li>
+      <li><a href="#info" class="nav-link">Info</a></li>
+      <li><a href="#cta" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 3. HERO (standalone, 100vh) -->
+<section class="hero-standalone" aria-label="Mulk Legacy introduction">
+  <div class="hero-media">
+    <img src="frames/frame_0001.webp" alt="Mulk Legacy — full elevation, daylight" loading="eager">
+    <div class="hero-media-scrim"></div>
+  </div>
+  <div class="hero-inner">
+    <span class="section-label hero-fade">Mulk Legacy</span>
+    <h1 class="hero-heading">
+      <span class="word-row"><span class="word">A</span> <span class="word">Quiet</span></span>
+      <span class="word-row"><span class="word">Kind</span> <span class="word">of</span></span>
+      <span class="word-row"><span class="word">Grand.</span></span>
+    </h1>
+    <p class="hero-tagline hero-fade">Six floors of considered living, set behind terracotta and green — Bashundhara J Block.</p>
+    <a href="#intro" class="hero-cta hero-fade">
+      <span>Explore Project</span>
+    </a>
+  </div>
+  <div class="scroll-indicator hero-fade" aria-hidden="true">
+    <span>Scroll</span>
+    <svg width="14" height="22" viewBox="0 0 14 22" fill="none"><path d="M7 0V21M7 21L1 15M7 21L13 15" stroke="currentColor" stroke-width="1.2"/></svg>
+  </div>
+</section>
+
+<!-- 4. CANVAS + OVERLAY -->
+<div class="canvas-wrap" id="canvas-wrap">
+  <canvas id="canvas" aria-hidden="true"></canvas>
+</div>
+<div id="dark-overlay" aria-hidden="true"></div>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" id="marquee" aria-hidden="true">
+  <div class="marquee-text">A Quiet Kind of Grand</div>
+</div>
+
+<!-- 5. SCROLL CONTAINER -->
+<main id="scroll-container">
+
+  <!-- Project Introduction -->
+  <section id="intro" class="scroll-section section-content align-left"
+           data-enter="3" data-leave="15" data-animation="fade-up">
+    <div class="section-inner">
+      <span class="section-label">001 &nbsp;/&nbsp; The Project</span>
+      <h2 class="section-heading">Built to<br>outlast<br>the season.</h2>
+      <p class="section-body">Mulk Legacy is a G+6 exclusive residential building, set back from the road behind terracotta piers and a wall of climbing green. Six floors of considered living — wrapped in brick, cast concrete, and shade.</p>
+    </div>
+  </section>
+
+  <!-- Cinematic Showcase — beat 1 -->
+  <section class="scroll-section section-content section-media align-right"
+           data-enter="13" data-leave="25" data-animation="clip-reveal">
+    <div class="section-inner">
+      <span class="section-label">002 &nbsp;/&nbsp; Facade</span>
+      <h2 class="section-heading">Terracotta<br>and cast<br>concrete.</h2>
+      <p class="section-body">Two materials, in quiet conversation — warm brick piers set against pale concrete, repeated floor after floor.</p>
+    </div>
+  </section>
+
+  <!-- Cinematic Showcase — beat 2 -->
+  <section class="scroll-section section-content section-media align-left"
+           data-enter="23" data-leave="35" data-animation="slide-right">
+    <div class="section-inner">
+      <span class="section-label">003 &nbsp;/&nbsp; Threshold</span>
+      <h2 class="section-heading">Every<br>arrival<br>passes<br>through green.</h2>
+      <p class="section-body">Climbing vines and hydrangea beds soften the gate long before the door — the first room of the building is outdoors.</p>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section id="features" class="scroll-section section-content align-left section-features"
+           data-enter="48" data-leave="64" data-animation="slide-left">
+    <div class="section-inner">
+      <span class="section-label">Key Features</span>
+      <ul class="features-list">
+        <li class="feature-row"><span class="feature-number" data-value="1">00</span><span class="feature-text">G+6 Exclusive Residential Building</span></li>
+        <li class="feature-row"><span class="feature-number" data-value="2">00</span><span class="feature-text">1,715 Sq&nbsp;Ft Spacious Apartments</span></li>
+        <li class="feature-row"><span class="feature-number" data-value="3">00</span><span class="feature-text">12 Dedicated Parking Spaces</span></li>
+        <li class="feature-row"><span class="feature-number" data-value="4">00</span><span class="feature-text">Landscaped, Green Facade Throughout</span></li>
+        <li class="feature-row"><span class="feature-number" data-value="5">00</span><span class="feature-text">Rooftop Terrace Garden</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Architecture / Details -->
+  <section class="scroll-section section-editorial"
+           data-enter="63" data-leave="76" data-animation="scale-up">
+    <div class="editorial-grid">
+      <figure class="editorial-item editorial-large">
+        <img src="frames/frame_0001.webp" alt="Mulk Legacy — full elevation" loading="lazy">
+        <figcaption class="editorial-caption">Six floors, read from the street.</figcaption>
+      </figure>
+      <figure class="editorial-item editorial-small">
+        <img src="frames/frame_0065.webp" alt="Street view of the entrance framed by climbing vines and hydrangea, with a parked car and a passerby" loading="lazy">
+        <figcaption class="editorial-caption">The gate, before the door.</figcaption>
+      </figure>
+      <figure class="editorial-item editorial-medium">
+        <img src="frames/frame_0054.webp" alt="Balcony overlooking the tree-lined road" loading="lazy">
+        <figcaption class="editorial-caption">A private ledge, above the canopy.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Lifestyle -->
+  <section class="scroll-section section-content section-lifestyle align-right"
+           data-enter="75" data-leave="87" data-animation="fade-up">
+    <div class="lifestyle-media">
+      <img src="frames/frame_0054.webp" alt="View from a Mulk Legacy balcony over the green canopy" loading="lazy">
+    </div>
+    <div class="section-inner">
+      <span class="section-label">004 &nbsp;/&nbsp; Lifestyle</span>
+      <h2 class="section-heading">Come home<br>to green.</h2>
+      <p class="section-body">Palm and banana canopy at every window, a quiet road below, and a rooftop garden above — privacy that doesn't feel like distance.</p>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section id="location" class="scroll-section section-content section-dark align-left"
+           data-enter="82" data-leave="88" data-animation="clip-reveal" data-persist="true">
+    <div class="section-inner">
+      <span class="section-label">Location</span>
+      <h2 class="section-heading">Bashundhara,<br>J Block.</h2>
+      <ul class="poi-list">
+        <li class="poi-row"><span class="poi-label">Address</span><span class="poi-value">Prime location — Bashundhara J&nbsp;Block, Dhaka</span></li>
+        <li class="poi-row"><span class="poi-label">Nearby</span><span class="poi-value">Conveniently located near a mosque</span></li>
+        <li class="poi-row"><span class="poi-label">Surroundings</span><span class="poi-value">[PLACEHOLDER]</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Project Information -->
+  <section id="info" class="scroll-section section-content align-right"
+           data-enter="96" data-leave="101" data-animation="slide-right">
+    <div class="section-inner">
+      <span class="section-label">Project Information</span>
+      <ul class="info-list">
+        <li class="info-row"><span class="info-label">Location</span><span class="info-value">Bashundhara J&nbsp;Block, Dhaka</span></li>
+        <li class="info-row"><span class="info-label">Property Type</span><span class="info-value">G+6 Exclusive Residential Building</span></li>
+        <li class="info-row"><span class="info-label">Apartment Size</span><span class="info-value">1,715 Sq&nbsp;Ft</span></li>
+        <li class="info-row"><span class="info-label">Parking</span><span class="info-value">12 Dedicated Spaces</span></li>
+        <li class="info-row"><span class="info-label">Total Units</span><span class="info-value placeholder">[PLACEHOLDER]</span></li>
+        <li class="info-row"><span class="info-label">Developer</span><span class="info-value placeholder">[PLACEHOLDER]</span></li>
+        <li class="info-row"><span class="info-label">Architect</span><span class="info-value placeholder">[PLACEHOLDER]</span></li>
+        <li class="info-row"><span class="info-label">Completion</span><span class="info-value placeholder">[PLACEHOLDER]</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section id="cta" class="scroll-section section-cta" data-enter="99" data-leave="100" data-animation="fade-up" data-persist="true">
+    <div class="cta-media">
+      <img src="frames/frame_0175.webp" alt="Mulk Legacy at dusk, windows lit" loading="lazy">
+      <div class="cta-scrim"></div>
+    </div>
+    <div class="section-inner cta-inner">
+      <span class="section-label">Mulk Legacy</span>
+      <h2 class="section-heading cta-heading">Experience<br>the project.</h2>
+      <a href="#" class="cta-button"><span>Request a Private Viewing</span></a>
+    </div>
+  </section>
+
+</main>
+
+<!-- 6. FOOTER -->
+<footer class="site-footer">
+  <div class="footer-top">
+    <span class="footer-logo">MULK</span>
+    <ul class="footer-nav">
+      <li><a href="#intro">Project</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#info">Info</a></li>
+    </ul>
+  </div>
+  <div class="footer-mid">
+    <div class="footer-block">
+      <span class="footer-block-label">Contact</span>
+      <span class="placeholder">[PLACEHOLDER]</span>
+    </div>
+    <div class="footer-block">
+      <span class="footer-block-label">Social</span>
+      <span class="placeholder">[PLACEHOLDER]</span>
+    </div>
+    <div class="footer-block">
+      <span class="footer-block-label">Legal</span>
+      <span class="placeholder">[PLACEHOLDER]</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mulk Legacy. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
