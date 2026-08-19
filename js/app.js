@@ -211,6 +211,69 @@
   }
 
   /* ---------------------------------------------------------
+     Mobile nav toggle
+  --------------------------------------------------------- */
+  function initMobileNav() {
+    const toggle = document.getElementById("nav-toggle");
+    const menu = document.getElementById("mobile-menu");
+    if (!toggle || !menu) return;
+
+    function closeMenu() {
+      menu.classList.remove("is-open");
+      menu.setAttribute("aria-hidden", "true");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      menu.classList.add("is-open");
+      menu.setAttribute("aria-hidden", "false");
+      toggle.setAttribute("aria-expanded", "true");
+    }
+
+    toggle.addEventListener("click", () => {
+      const isOpen = menu.classList.contains("is-open");
+      isOpen ? closeMenu() : openMenu();
+    });
+    menu.querySelectorAll(".mobile-menu-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Gallery lightbox
+  --------------------------------------------------------- */
+  function initLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close");
+    if (!lightbox || !lightboxImg) return;
+
+    function open(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    }
+    function close() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll("[data-lightbox]").forEach((item) => {
+      item.addEventListener("click", () => {
+        const img = item.querySelector("img");
+        if (img) open(img.src, img.alt);
+      });
+    });
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  }
+
+  /* ---------------------------------------------------------
      Section entrance choreography
   --------------------------------------------------------- */
   // Sections are positioned in the SAME basis GSAP uses for scroll progress.
@@ -244,7 +307,7 @@
       sectionPositions.push({ section, mid });
 
       const children = section.querySelectorAll(
-        ".section-label, .section-heading, .section-body, .cta-button, .feature-row, .poi-row, .info-row, .editorial-item"
+        ".section-label, .section-heading, .section-body, .cta-button, .feature-row, .poi-row, .info-row, .editorial-item, .stat-tile"
       );
 
       if (prefersReducedMotion) {
@@ -396,6 +459,8 @@
   document.addEventListener("DOMContentLoaded", () => {
     resizeCanvas();
     initHeaderScrollState();
+    initMobileNav();
+    initLightbox();
     initHeroEntrance();
     initHeroTransition();
     bindScrollFrames();
