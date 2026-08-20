@@ -9,6 +9,7 @@ Built with GSAP/ScrollTrigger, a canvas frame-rendered "video" (`frames/`), and 
 - `css/style.css` — styling, layout, and section-specific treatments
 - `js/app.js` — scroll choreography (frame rendering, section reveals, marquee, dark overlay, mobile nav, lightbox)
 - `frames/` — 180 extracted video frames used for the canvas-scrubbed background (frames ~102–174 are only used by the gallery section; the rest drive the scroll-scrubbed canvas)
+- `images/` — standalone HD marketing renders (day/night exterior, floor plan) used in the gallery, CTA background, and Floor Plan section; derived from `hd-frames/` (kept as the original source archive) via `sips`/`cwebp`
 - `privacy.html`, `terms.html` — minimal legal pages, drafted, **pending legal review**
 - `robots.txt`, `sitemap.xml` — basic SEO scaffolding
 

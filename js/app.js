@@ -307,7 +307,7 @@
       sectionPositions.push({ section, mid });
 
       const children = section.querySelectorAll(
-        ".section-label, .section-heading, .section-body, .cta-button, .feature-row, .poi-row, .info-row, .editorial-item, .stat-tile"
+        ".section-label, .section-heading, .section-body, .cta-button, .feature-row, .poi-row, .info-row, .editorial-item, .stat-tile, .floorplan-media"
       );
 
       if (prefersReducedMotion) {

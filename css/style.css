@@ -13,12 +13,21 @@
   --charcoal: #17150f;      /* near-black warm charcoal — dark bg */
   --charcoal-2: #221f18;    /* slightly lighter dark panel */
   --ink: #24211a;           /* body text on light */
-  --ink-soft: #5b5647;      /* secondary text on light */
+  --ink-soft: #4a4536;      /* secondary text on light — darkened a shade for more pop against stone */
   --paper: #f4eee0;         /* text on dark */
-  --paper-soft: #cfc6b0;    /* secondary text on dark */
+  --paper-soft: #e2d8bf;    /* secondary text on dark — brightened from a flatter tan so it pops on charcoal */
   --moss: #4b5a3e;          /* deep green accent, sparing use */
   --line: rgba(36, 33, 26, 0.14);
   --line-dark: rgba(244, 238, 224, 0.16);
+
+  /* Legibility shadows for --paper/--paper-soft text: the cinematic beats
+     sit directly on scrubbing video footage, so a fixed scrim can't
+     guarantee contrast against every frame — a shadow behind the glyphs
+     keeps them readable no matter how bright the footage gets.
+     --shadow-panel is a lighter touch for text on solid charcoal panels,
+     which already have plenty of contrast on their own. */
+  --shadow-video: 0 2px 14px rgba(15, 14, 10, 0.75), 0 1px 3px rgba(15, 14, 10, 0.9);
+  --shadow-panel: 0 1px 6px rgba(0, 0, 0, 0.3);
 
   --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,12 +88,12 @@ h1, h2, h3, p { margin: 0; }
 .site-nav { display: flex; align-items: center; justify-content: space-between; }
 .nav-logo {
   font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.2em;
-  color: var(--paper);
+  color: var(--paper); text-shadow: var(--shadow-video);
 }
 .nav-links { display: flex; gap: 2.4rem; }
 .nav-link {
   font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--paper); opacity: 0.72;
+  color: var(--paper); opacity: 0.72; text-shadow: var(--shadow-video);
   transition: opacity 0.3s var(--ease-out);
 }
 .nav-link:hover { opacity: 1; }
@@ -145,28 +154,32 @@ h1, h2, h3, p { margin: 0; }
   display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--paper-soft); margin-bottom: 1.4rem;
 }
+.hero-inner .section-label { text-shadow: var(--shadow-video); }
 .hero-heading {
   font-family: var(--font-display); font-weight: 400; color: var(--paper);
   font-size: clamp(3.2rem, 9vw, 8.5rem); line-height: 0.98; letter-spacing: -0.01em;
+  text-shadow: var(--shadow-video);
 }
 .word-row { display: block; overflow: hidden; }
 .word-row .word { display: inline-block; }
 .hero-tagline {
   margin-top: 1.8rem; max-width: 34ch;
   font-size: 1.05rem; color: var(--paper-soft); font-weight: 300;
+  text-shadow: var(--shadow-video);
 }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 0.6rem;
   margin-top: 2.6rem; padding-bottom: 0.5rem;
   font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--paper); border-bottom: 1px solid var(--line-dark);
+  text-shadow: var(--shadow-video);
   transition: border-color 0.3s var(--ease-out), letter-spacing 0.3s var(--ease-out);
 }
 .hero-cta:hover { border-color: var(--paper); letter-spacing: 0.14em; }
 .scroll-indicator {
   position: absolute; right: 4vw; bottom: 4vh; z-index: 2;
   display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-  color: var(--paper-soft);
+  color: var(--paper-soft); text-shadow: var(--shadow-video);
 }
 .scroll-indicator span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
 .scroll-indicator svg { animation: bob 2.4s ease-in-out infinite; }
@@ -249,8 +262,8 @@ h1, h2, h3, p { margin: 0; }
 
 /* sections that sit over the dark canvas need light text */
 .section-media .section-label,
-.section-media .section-body { color: var(--paper-soft); }
-.section-media .section-heading { color: var(--paper); }
+.section-media .section-body { color: var(--paper-soft); text-shadow: var(--shadow-video); }
+.section-media .section-heading { color: var(--paper); text-shadow: var(--shadow-video); }
 
 /* Features */
 .section-features .features-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.1rem; }
@@ -261,10 +274,10 @@ h1, h2, h3, p { margin: 0; }
   font-variant-numeric: tabular-nums; min-width: 2.4ch;
 }
 .feature-text { font-size: 1.15rem; color: var(--ink); font-weight: 400; }
-.section-features .section-label, .section-features .section-heading { color: var(--paper); }
+.section-features .section-label, .section-features .section-heading { color: var(--paper); text-shadow: var(--shadow-panel); }
 .section-features { background: var(--charcoal) !important; }
 .section-features .feature-text,
-.section-features .section-label { color: var(--paper); }
+.section-features .section-label { color: var(--paper); text-shadow: var(--shadow-panel); }
 .section-features .feature-number { color: var(--terracotta-soft); }
 .section-features .feature-row { border-top-color: var(--line-dark); }
 
@@ -325,6 +338,31 @@ h1, h2, h3, p { margin: 0; }
   background: none; color: var(--paper); font-size: 1.6rem; line-height: 1; cursor: pointer;
 }
 
+/* Floor Plan */
+.section-floorplan {
+  flex-direction: column; text-align: center; justify-content: center;
+  min-height: 100vh; background: var(--charcoal-2); padding: 7vh 6vw;
+}
+.section-floorplan .section-heading { color: var(--paper); text-shadow: var(--shadow-panel); }
+.section-floorplan .section-body { color: var(--paper-soft); margin-left: auto; margin-right: auto; text-shadow: var(--shadow-panel); }
+/* Height-capped (not width-capped): this section's total footprint needs to
+   stay close to one viewport tall, same as every other .scroll-section — they
+   all share one absolute-positioning system keyed to percentages of scroll
+   progress, and a section that runs much taller than 100vh bleeds into a
+   neighbor's position range. Since siblings there are transparent (opacity:0)
+   until their own reveal fires, not yet-visible, they still sit in the DOM
+   and would silently swallow clicks meant for this image if it ran long. */
+.floorplan-media {
+  position: relative; margin: 2rem auto 0;
+  cursor: zoom-in; border: 1px solid var(--line-dark); background: #fff;
+}
+.floorplan-media img { max-height: 46vh; width: auto; max-width: 100%; height: auto; display: block; }
+.floorplan-hint {
+  position: absolute; right: 1rem; bottom: 1rem;
+  font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--charcoal); background: rgba(244,238,224,0.86); padding: 0.4rem 0.8rem;
+}
+
 /* Lifestyle */
 /* NOTE: no `position` here — see the comment on .section-media above;
    same bug, same fix. .lifestyle-media/::after below already get their
@@ -338,15 +376,15 @@ h1, h2, h3, p { margin: 0; }
 }
 .section-lifestyle .section-inner { position: relative; z-index: 2; }
 .section-lifestyle .section-label,
-.section-lifestyle .section-body { color: var(--paper-soft); }
-.section-lifestyle .section-heading { color: var(--paper); }
+.section-lifestyle .section-body { color: var(--paper-soft); text-shadow: var(--shadow-video); }
+.section-lifestyle .section-heading { color: var(--paper); text-shadow: var(--shadow-video); }
 
 /* Location — dark cinematic overlay beat */
 .section-dark { min-height: 70vh; }
 .section-dark .section-label,
 .section-dark .section-heading,
-.section-dark .poi-label { color: var(--paper); }
-.section-dark .poi-value { color: var(--paper-soft); }
+.section-dark .poi-label { color: var(--paper); text-shadow: var(--shadow-video); }
+.section-dark .poi-value { color: var(--paper-soft); text-shadow: var(--shadow-video); }
 .poi-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
 .poi-row { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; border-top: 1px solid var(--line-dark); padding-top: 0.9rem; }
 .poi-row:first-child { border-top: none; padding-top: 0; }
@@ -488,6 +526,10 @@ h1, h2, h3, p { margin: 0; }
   .location-map { margin-top: 0.8rem; }
   .location-map iframe { height: 120px; }
 
+  .section-floorplan { padding: 6vh 6vw; }
+  .floorplan-media { margin-top: 1.6rem; }
+  .floorplan-hint { right: 0.6rem; bottom: 0.6rem; font-size: 0.62rem; padding: 0.3rem 0.6rem; }
+
   .poi-row, .info-row { grid-template-columns: 1fr; gap: 0.3rem; }
   .info-row { padding: 0.55rem 0; }
   .info-intro, .info-list { margin-top: 1.2rem; }
@@ -500,6 +542,7 @@ h1, h2, h3, p { margin: 0; }
 
   .footer-mid { grid-template-columns: 1fr; gap: 1.6rem; }
   .footer-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .footer-nav { flex-wrap: wrap; row-gap: 0.7rem; column-gap: 1.4rem; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .whatsapp-button { right: 1.2rem; bottom: 1.2rem; width: 2.9rem; height: 2.9rem; }
